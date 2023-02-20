@@ -8,6 +8,11 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 
+# Qt is statically linked, which defaults to not exposing any public symbols.
+# Therefore, LogLite's visibility preset needs to be `hidden` as well to avoid linker warnings about
+# direct access to global weak symbols.
+set(CMAKE_CXX_VISIBILITY_PRESET hidden)
+
 if(NOT DEFINED INSTALL_EXAMPLESDIR)
     set(INSTALL_EXAMPLESDIR "examples")
 endif()
