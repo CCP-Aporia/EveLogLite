@@ -157,8 +157,8 @@ if(APPLE)
     execute_process(
         COMMAND_ERROR_IS_FATAL ANY
         COMMAND_ECHO STDOUT
-        OUTPUT_FILE STDOUT
-        ERROR_FILE STDERR
+        OUTPUT_FILE ${CMAKE_BINARY_DIR}/icon-generation-output.log
+        ERROR_FILE ${CMAKE_BINARY_DIR}/icon-generation-error.log
         COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_BINARY_DIR}/icon.iconset/
         COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_SOURCE_DIR}/resources/icon/16.png ${CMAKE_BINARY_DIR}/icon.iconset/icon_16x16.png
         COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_SOURCE_DIR}/resources/icon/32.png ${CMAKE_BINARY_DIR}/icon.iconset/icon_16x16@2x.png
